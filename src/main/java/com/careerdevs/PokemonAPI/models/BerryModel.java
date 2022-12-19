@@ -10,6 +10,8 @@ public class BerryModel {
 
     private String name;
     private int growth_time;
+
+    private int max_harvest;
     private int size;
     public Firmness firmness;
         public static class Firmness{
@@ -89,6 +91,14 @@ public class BerryModel {
 
     public void setGrowth_time(int growth_time) {
         this.growth_time = growth_time;
+    }
+
+    public int getMax_harvest() {
+        return max_harvest;
+    }
+
+    public void setMax_harvest(int max_harvest) {
+        this.max_harvest = max_harvest;
     }
 
     public int getSize() {
