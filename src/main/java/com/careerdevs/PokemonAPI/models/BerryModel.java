@@ -26,6 +26,47 @@ public class BerryModel {
 
         }
 
+
+
+    private Flavors[] flavors;
+
+        private static class Flavors{
+
+
+            private int potency;
+            private Flavor flavor;
+
+            private static class Flavor{
+                public String getName() {
+                    return name;
+                }
+
+                public void setName(String name) {
+                    this.name = name;
+                }
+
+                private String name;
+
+
+            }
+
+            public int getPotency() {
+                return potency;
+            }
+
+            public void setPotency(int potency) {
+                this.potency = potency;
+            }
+
+            public Flavor getFlavor() {
+                return flavor;
+            }
+
+            public void setFlavor(Flavor flavor) {
+                this.flavor = flavor;
+            }
+        }
+
     public int getId() {
         return id;
     }
@@ -66,4 +107,11 @@ public class BerryModel {
         this.firmness = firmness;
     }
 
+    public Flavors[] getFlavors() {
+        return flavors;
+    }
+
+    public void setFlavors(Flavors[] flavors) {
+        this.flavors = flavors;
+    }
 }
