@@ -5,9 +5,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class BerryModel {
     private int id;
-
-
-
     private String name;
     private int growth_time;
 
