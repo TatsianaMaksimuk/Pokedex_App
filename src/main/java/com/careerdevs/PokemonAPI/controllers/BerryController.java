@@ -30,4 +30,10 @@ public class BerryController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> BerryByName (RestTemplate restTemplate, @PathVariable String name){
+        String url = berryAPIEndpoint + "/"+ name;
+        BerryModel response = restTemplate.getForObject(url, BerryModel.class);
+        return ResponseEntity.ok(response);
+    }
 }

@@ -27,4 +27,12 @@ public class PokemonsController {
         PokemonModel response = restTemplate.getForObject(url, PokemonModel.class);
         return ResponseEntity.ok(response);
     }
+
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> pokemonByName (RestTemplate restTemplate, @PathVariable String name){
+        String url = pokemonAPIEndpoint + "/"+ name;
+        PokemonModel response = restTemplate.getForObject(url, PokemonModel.class);
+        return ResponseEntity.ok(response);
+    }
 }
