@@ -1,5 +1,6 @@
 package com.careerdevs.PokemonAPI.controllers;
 
+import com.careerdevs.PokemonAPI.models.PokemonModel;
 import com.careerdevs.PokemonAPI.models.PokemonSpeciesModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,13 @@ public class PokemonSpeciesController {
     @GetMapping("/{id}")
     public ResponseEntity<?> speciesById(RestTemplate restTemplate, @PathVariable String id) {
         String url = pokeSpeciesApiEndpoint + "/" + id;
+        PokemonSpeciesModel response = restTemplate.getForObject(url, PokemonSpeciesModel.class);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/name/{name}")
+    public ResponseEntity<?> pokemonByName (RestTemplate restTemplate, @PathVariable String name){
+        String url = pokeSpeciesApiEndpoint + "/"+ name;
         PokemonSpeciesModel response = restTemplate.getForObject(url, PokemonSpeciesModel.class);
         return ResponseEntity.ok(response);
     }

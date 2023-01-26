@@ -1,5 +1,6 @@
 package com.careerdevs.PokemonAPI.controllers;
 
+import com.careerdevs.PokemonAPI.models.BerryModel;
 import com.careerdevs.PokemonAPI.models.EncounterModel;
 import com.careerdevs.PokemonAPI.models.LocationModel;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,13 @@ public class EncounterController {
     @GetMapping("/{id}")
     public ResponseEntity<?> encounterById (RestTemplate restTemplate, @PathVariable String id){
         String url = encounterAPIEndpoint + "/"+ id;
+        EncounterModel response = restTemplate.getForObject(url, EncounterModel.class);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/name/{name}")
+    public ResponseEntity<?> EncounterByName (RestTemplate restTemplate, @PathVariable String name){
+        String url = encounterAPIEndpoint + "/"+ name;
         EncounterModel response = restTemplate.getForObject(url, EncounterModel.class);
         return ResponseEntity.ok(response);
     }

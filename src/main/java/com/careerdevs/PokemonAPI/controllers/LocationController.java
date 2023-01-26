@@ -1,5 +1,6 @@
 package com.careerdevs.PokemonAPI.controllers;
 
+import com.careerdevs.PokemonAPI.models.BerryModel;
 import com.careerdevs.PokemonAPI.models.LocationModel;
 import com.careerdevs.PokemonAPI.models.PokemonModel;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,13 @@ public class LocationController {
     @GetMapping("/{id}")
     public ResponseEntity<?> locationById (RestTemplate restTemplate, @PathVariable String id){
         String url = locationAPIEndpoint + "/"+ id;
+        LocationModel response = restTemplate.getForObject(url, LocationModel.class);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/name/{name}")
+    public ResponseEntity<?> LocationByName (RestTemplate restTemplate, @PathVariable String name){
+        String url = locationAPIEndpoint + "/"+ name;
         LocationModel response = restTemplate.getForObject(url, LocationModel.class);
         return ResponseEntity.ok(response);
     }
